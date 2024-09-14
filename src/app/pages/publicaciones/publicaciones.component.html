@@ -1,0 +1,77 @@
+<!-- <p>publicaciones works!</p> -->
+<h2 class="text-center">Método Post</h2>
+<form (ngSubmit)="onSubmit()" class="container mt-4">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombres:</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="Enviar.name"
+        name="name"
+        autocomplete="off"
+        required
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="apellidos" class="form-label">Apellidos:</label>
+      <input
+        type="text"
+        id="apellidos"
+        class="form-control"
+        [(ngModel)]="Enviar.apellidos"
+        name="apellidos"
+        autocomplete="off"
+        required
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo:</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        [(ngModel)]="Enviar.email"
+        name="email"
+        autocomplete="off"
+        required
+      />
+    </div>
+  
+    <div class="mb-3">
+      <label for="body" class="form-label">Comentario:</label>
+      <textarea
+        id="body"
+        class="form-control"
+        [(ngModel)]="Enviar.body"
+        name="body"
+        autocomplete="off"
+        required
+      ></textarea>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>  
+
+<!-- <div *ngIf="response">
+  <h3>Respuesta del Servidor:</h3>
+  <pre>{{ response | json }}</pre>
+</div> -->
+<ul class="list-group mt-5">
+    <li class="list-group-item" *ngFor="let item of datospost">
+        <h6>Nombre: {{item.name}} {{item.apellidos}}</h6>
+        <p>Descripción: {{item.body}}</p>
+        <p>Email: {{item.email}}</p>
+    </li>
+</ul>
+
+<h2 class="text-center">Método Get</h2>
+
+<ul class="list-group mt-5">
+    <li class="list-group-item" *ngFor="let item of losdatos">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.body }}</p>
+    </li>
+</ul>

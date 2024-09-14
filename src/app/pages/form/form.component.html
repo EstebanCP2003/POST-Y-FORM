@@ -1,0 +1,65 @@
+<h2>Mi Formulario</h2>
+
+<!-- <form action="">
+    <div class="form-group mb-5">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" class="form-control" name="nombre" [(ngModel)]="nombre">
+    </div>
+
+    <button class="btn btn-primary" type="submit" (click)="cambiarNombre()">Agregar</button>
+</form> -->
+
+<br>
+<!-- FORMULARIO -->
+<h2>Cliente</h2>
+
+<form action="">
+    <div class="form-group">
+        <label for="nombre">Id</label>
+        <input type="text" class="form-control" id="id" name="id" [(ngModel)]="cliente.id">
+      </div>
+      
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre2" name="nombre1" [(ngModel)]="cliente.nombre">
+      </div>
+    
+      <div class="form-group">
+        <label for="nombre">Telefono</label>
+        <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="cliente.telefono">
+    </div>
+    
+  <button type="button" class="btn btn-success mt-3" (click)="AgregarCliente()">Agregar</button>
+</form>
+<hr>
+<div class="alert alert-danger" role="alert" *ngIf="VerDatosCliente()">
+    Clientes: Aqui no hay datos
+</div>
+<div class="alert alert-success" role="alert" *ngIf="!VerDatosCliente()">
+    Clientes: Aqui hay datos
+</div>
+
+<!-- Listado en CRUD -->
+<h2>Lista de Clientes</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center">ID</th>
+      <th class="text-center">Nombre</th>
+      <th class="text-center">Teléfono</th>
+      <th class="text-center">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes; let i = index">
+      <td class="text-center">{{ cliente.id }}</td>
+      <td class="text-center">{{ cliente.nombre }}</td>
+      <td class="text-center">{{ cliente.telefono }}</td>
+      <td class="text-center">
+        <button class="btn btn-primary " style="margin-right: 4px;" (click)="editarCliente(i)">Editar</button>
+        <button class="btn btn-danger " (click)="eliminarCliente(i)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
